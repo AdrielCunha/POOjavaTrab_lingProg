@@ -24,29 +24,18 @@ public class Main {
 		arrayRealizadas = c.Compras(Usuarios, Produtos);
 		
 		for (int i = 0; i < arrayRealizadas.size(); i++) {
+			float total = 0;
 			System.out.println("ID da compra: " + arrayRealizadas.get(i).getId());
 			System.out.println("Cliente: " + arrayRealizadas.get(i).getName());
 			
 			
 			for (int j = 0; j < arrayRealizadas.get(i).getProdutos().size(); j++) {
 				System.out.println("Comprou " + arrayRealizadas.get(i).getQuantProdutos().get(j) + " unidade(s) do produto: " 
-						+ arrayRealizadas.get(i).getProdutos().get(j));
-				
+						+ arrayRealizadas.get(i).getProdutos().get(j) + " - que custam " + 
+						Produtos.get(j).getPrice() + " cada");
+				total += Produtos.get(j).getPrice()*arrayRealizadas.get(i).getQuantProdutos().get(j);
 			}
+			System.out.println("O cliente comprou um total de R$" + total);
 		}		
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
